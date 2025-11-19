@@ -1,0 +1,20 @@
+{
+    "name": "C++ Lab4 DevContainer",
+    "dockerFile": "Dockerfile",
+    "context": ".",
+    "workspaceFolder": "/workspaces/Lab4",
+    "appPort": [],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.cmake-tools"
+            ],
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash"
+            }
+        }
+    },
+    "postCreateCommand": "rm -rf build && cmake -S . -B build -G Ninja && cmake --build build && ctest --test-dir build --output-on-failure",
+    "remoteUser": "vscode" 
+}
